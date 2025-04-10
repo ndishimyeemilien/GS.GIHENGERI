@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nziza jules">
+    <meta name="description" content="Sports News at College Baptiste">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>GS.gihengeri Sports News</title>
+    <link rel="stylesheet" href="article1.css">
+    <link rel="icon" href="gs.png"> 
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="gs.png" alt="School Logo" height="50">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="hom.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="body.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="#events">Upcoming Events</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    
+    <section id="home">
+        <div class="main-banner">
+            <video src="PSG's free football academy opens in Rwanda to identify potential talent • FRANCE 24 English.mp4" autoplay muted></video>
+            <h1>Welcome to GS.GIHENGERI Sports News</h1>
+            <p>Your hub for all sports-related news, updates, and events in our school!</p>
+        </div>
+        
+    </section>
+
+    <section id="articles">
+        <h2>Latest Sports News</h2>
+        <article class="news-article">
+            <h3>Sport News</h3>
+            <p>Written by ndishimye emilien on 4<sup>th</sup>October/2025</p>
+            <p><strong>Sports In GS.gihengeri</strong> Sport have became the most impresive activity to many people.</p>
+            <p>Expand on the sports activities, achievements, teams, or events happening in your school. Mention any tournaments, games, and highlights. For example, "The school basketball team triumphed in the regional finals, marking a historic win..."</p>
+            <p style="text-align: center; color: rgb(16, 158, 16); font-weight: bolder; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Join us for the next game </p>
+        </article>
+        
+        <!-- You can add many articles here if you want -->
+    </section>
+
+    <!--this is th  Events Section -->
+    <!-- <section id="events">
+        <h2>Upcoming Sports Events</h2>
+        <ul class="events-list">
+            <li>Event 1: Basketball Competitions - On 12th / February / 2025 - nyagatare - mukam</ali>
+            <li>Event 2: Volley ball - On 12th / February / 2025- nyagatare - mukam</li>
+            <li>Event 3: Foot ball - On 12th / February / 2025  -nyagatare - mukam</li>
+        </ul>
+        <table border="1">
+            <tr>
+                <th colspan="3">Count down for Acting Games</th>
+            </tr>
+              <tr>
+                <th>Basketball</th>
+                <th>Volley Ball</th>
+                <th>Foot Ball</th>
+              </tr>
+              <tr>
+                <td><div id="countdown"></div></td>
+                <td><div id="countright"></div></td>
+                <td><div id="counttop"></div></td>
+              </tr>
+            </table>
+    </section> -->
+
+    <!-- This is the  About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>At GS.gihengeri, we believe in the power of sports to foster teamwork, leadership, and discipline. Our sports programs include a variety of activities for students to participate in, from team sports to individual competitions.</p>
+        <p>Stay tuned for updates on our teams, achievements, and upcoming games!</p>
+    </section>
+
+    <!--This is the Footer Section -->
+    <footer>
+        <p>&copy; 2024 GS.GIHENGERI. All rights reserved.</p>
+        <p>Mail Us: <a href="">@gmail.com</a></p>
+    </footer>
+ 
+    <script>
+        //for bascket ball
+        var countDowndate = new Date("February 20, 2025 10:00:00").getTime();
+        var y = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDowndate - now;
+    
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+            if (distance < 0) {
+                clearInterval(y);
+                document.getElementById("countdown").innerHTML = "Basket Ball Started!";
+                alert("BASKET BALL IS STARTING");
+            }
+        }, 1000);
+       //for volley ball
+        var countdownDate = new Date("February 13, 2025 09:00:00").getTime();
+        var x = setInterval(function() {
+            var noe = new Date().getTime();
+            var distance = countdownDate - noe;
+    
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            document.getElementById("counttop").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Volley Ball Started!";
+                alert("VOLLEY ALL IS STARTING");
+            }
+        }, 1000);
+   //for foot ball
+        var CountDownDate = new Date("February 12, 2025 09:00:00").getTime();
+        var a = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = CountDownDate - now;
+    
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            document.getElementById("countright").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+            if (distance < 0) {
+                clearInterval(a);
+                document.getElementById("countdown").innerHTML = "Foot ball Started!";
+                alert("FOOT BALL IS STARTING");
+            }
+        }, 1000);
+
+   function toggleMenu() {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('active');
+    }
+
+    </script>
+</body>
+</html>

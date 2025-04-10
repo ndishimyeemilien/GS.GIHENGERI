@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+h1, h2 {
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Navbar Section */
+header {
+    background-color: green;
+    padding: 20px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo h1 {
+    color: white;
+    font-size: 2em;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    margin-right: 10px;
+    color: white;
+    font-size: 1.3em;
+}
+
+nav ul li a:hover {
+    border-radius: 7px;
+    padding: 10px 10px;
+    color: rgb(2, 73, 0);
+    background-color: chocolate;
+}
+
+
+.hero {
+    object-fit: cover;
+    object-position: center;
+    background-image: url('sc1.jpeg');
+    /* background-color: #2c3e50; */
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero h2 {
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.cta-button {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+}
+
+
+.section {
+    padding: 60px 0;
+    background-color: white;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+
+.goals .goal-item {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.goals .goal-item h3 {
+    color: #3498db;
+}
+
+#obligations ul {
+    padding-left: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+#obligations li {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+
+#contact a {
+    color: #177cc0da;
+    font-weight: bold;
+}
+
+
+footer {
+    background-color:green;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    /* For devices smaller than 768px (e.g., tablets, small laptops) */
+    body{
+        flex-direction: column;
+    }
+    header .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.3em;
+    }
+
+    .cta-button {
+        padding: 12px 20px;
+    }
+
+    .section {
+        padding: 40px 20px;
+    }
+
+    .goal-item {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    #obligations ul {
+        text-align: center;
+    }
+
+    #obligations li {
+        font-size: 1.1em;
+        margin: 5px 0;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* For very small devices (e.g., mobile phones) */
+    
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .cta-button {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .goal-item h3 {
+        font-size: 1.3em;
+    }
+
+    .goal-item p {
+        font-size: 1em;
+    }
+
+    #contact p {
+        font-size: 1.1em;
+    }
+
+    footer p {
+        font-size: 0.9em;
+    }
+}
+

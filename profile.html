@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="icon" href="gs.png"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <header>       
+        <h3>Profile</h3>
+        <nav>
+            <a href="hom.html" class="s"><i class="fas fa-home"></i>Home</a>
+            <a href="profile.html" class="s"><i class="fas fa-user"></i>Profile</a>
+            <a href="login.html" class="button logout-button" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </header>
+
+    <section class="profile-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <!-- Profile picture will be displayed here -->
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic" id="profile-picture">
+                <h2 id="profile-name"></h2>
+                <p id="profile-email"></p>
+            </div>
+
+            <form class="profile-form" id="profile-form">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" rows="4" placeholder="Write a short bio..."></textarea>
+
+                <label for="profile-pic">Profile Picture:</label>
+                <input type="file" id="profile-pic" name="profile-pic" accept="image/*" onchange="previewProfilePic(event)">
+
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 User Profile System</p>
+    </footer>
+
+    <script>
+        // Check if the user is logged in on profile page
+        const loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
+        if (!loggedInUserEmail) {
+            window.location.href = 'login.html'; // Redirect to login page if not logged in
+        } else {
+            // Retrieve user data using email from localStorage
+            const userData = JSON.parse(localStorage.getItem(loggedInUserEmail));
+
+            if (userData) {
+                // Pre-fill the form with the logged-in user's data
+                document.getElementById("profile-name").textContent = userData.username;
+                document.getElementById("profile-email").textContent = userData.email;
+                document.getElementById("name").value = userData.username;
+                document.getElementById("email").value = userData.email;
+                document.getElementById("bio").value = userData.bio || '';
+                if (userData.profilePic) {
+                    document.getElementById('profile-picture').src = userData.profilePic;
+                }
+            }
+        }
+
+        // Function to preview the profile picture before saving
+        function previewProfilePic(event) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profile-picture').src = e.target.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        // Save profile data in localStorage after "Save Changes" is clicked
+        document.getElementById("profile-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const bio = document.getElementById('bio').value;
+            const profilePic = document.getElementById('profile-pic').files[0];
+
+            const updatedUserData = {
+                username: name,
+                email: email,
+                bio: bio
+            };
+
+            if (profilePic) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    updatedUserData.profilePic = e.target.result; // Store the profile picture
+                    // Save the updated user data using the email as the key
+                    localStorage.setItem(email, JSON.stringify(updatedUserData));
+                };
+                reader.readAsDataURL(profilePic);
+            } else {
+                // If no profile picture is selected, keep the existing one
+                localStorage.setItem(email, JSON.stringify(updatedUserData)); // Save the updated data
+            }
+
+            // Also update the logged-in user's data
+            localStorage.setItem("loggedInUserEmail", email);
+
+            alert('Profile updated successfully!');
+        });
+
+        // Logout function
+        function logout() {
+            if (confirm("Do you want to logout?")) {
+                localStorage.removeItem("loggedInUserEmail"); // Remove logged-in user data
+                window.location.href = 'login.html'; // Redirect to login page
+            }
+        }
+    </script>
+
+</body>
+</html>

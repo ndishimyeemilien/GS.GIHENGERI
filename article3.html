@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Annual Talent Show News</title>
+    <link rel="stylesheet" href="article3.css">
+    <link rel="icon" href="cbd logo.PNG"> 
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+        
+            <div class="logo">
+                <a href="#">Talent Show News</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="hom.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="body.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="#contact-form"><i class="fas fa-phone"></i> Contact</a></li>
+            </ul>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to the Annual Talent Show</h1>
+            <p>Get the latest updates on performances, auditions, and events!</p>
+        </section>
+
+        <section class="news">
+            <h2>Featured News</h2>
+            <div class="news-container">
+                <article class="news-item">
+                    <h3>Talent Show Auditions Open!</h3>
+                    <p>Auditions for this year's Talent Show are now open! Don't miss your chance to be part of the biggest event of the year.</p>
+                </article>
+                <article class="news-item">
+                    <h3>Event Date Announced</h3>
+                    <p>The official date for the Annual Talent Show is set! Mark your calendars for June 25th!</p>
+                </article>
+                <article class="news-item">
+                    <h3>Last Year's Show Recap</h3>
+                    <p>Missed last year's show? Here's a look at some of the highlights from an unforgettable night!</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            <ul>
+                <li><strong>Auditions</strong> - January 10th, 2024</li>
+                <li><strong>Rehearsals Begin</strong> - March 5th, 2024</li>
+                <li><strong>Talent Show</strong> - June 25th, 2024</li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Talent Show News. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
+    </script>
+</body>
+</html>

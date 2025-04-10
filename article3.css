@@ -1,0 +1,202 @@
+/* Reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+body {
+    font-family: cursive;
+    background-color: #f4f4f4;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color:green;
+    /* position: relative; */
+}
+/* video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 51.1vh;
+    object-fit: cover;
+    z-index: -2;
+
+} */
+
+.navbar .logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 1.1s;
+}
+
+.nav-links li a:hover {
+    border-radius: 10px;
+    padding: 15px 15px;
+    color: rgb(2, 73, 0);
+    background-color: chocolate;
+}
+
+/* Mobile menu icon */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.menu-icon .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    background:blue;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+/* News Section */
+.news {
+    padding: 40px;
+    background-color: #fff;
+}
+
+.news-container {
+    display: flex;
+    gap: 20px;
+}
+
+.news-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.589);
+}
+
+.news-item h3 {
+    margin-bottom: 15px;
+}
+
+/* Events Section */
+.events {
+    padding: 40px;
+    background-color: #fff;
+}
+
+.events ul {
+    list-style-type: none;
+}
+
+.events li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 40px;
+    background-color: #fff;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #091453;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #122175;
+}
+
+/* Footer styles */
+footer {
+    background-color:green;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .news-container {
+        flex-direction: column;
+    }
+
+    .news-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        justify-content: space-around;
+        margin: 20px;
+        display: none;
+        flex-direction: column;
+        width: 60%;
+        height: 25vh;
+        border-radius: 6px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        backdrop-filter: blur(10px);
+        background-color:green;
+        padding: 20px;
+    }
+    .nav-links li a{
+        color: black;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+}

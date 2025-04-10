@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="owner.css">
+    <link rel="icon" href="cbd logo.PNG"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Teachers</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="cbd logo.PNG" alt="School Logo" height="50">
+        </div>
+        <h3>TEACHERS OF COLLEGE BAPTISTE GACUBA II</h3>
+        <nav>
+            <ul>
+            <li><a href="hom.html" class="s"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="owner.html" class="s"><i class="fas fa-user-tie"></i> Headers</a></li>
+            </ul>
+        </nav>
+    </header>
+   
+    <section class="profile-container">
+        <!-- Profile Card 1 -->
+        <div class="profile-card" id="profile-card-1">
+            <div class="profile-header">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic" id="profile-pic-1">
+                <h2>C.B.G</h2>
+                <p>Collegebaptiste2@gmail.com</p>
+            </div>
+
+            <form class="profile-form" id="profile-form-1">
+                <label for="name-1">Full Name:</label>
+                <input type="text" id="name-1" name="name" value="Nziza jules" required>
+
+                <label for="bio-1">Bio:</label>
+                <textarea id="bio-1" name="bio" rows="4" placeholder="Write a short bio...">I am a web developer with a passion for coding.</textarea>
+
+                <label for="profile-pic-1">Profile Picture:</label>
+                <input type="file" id="profile-pic-input-1" name="profile-pic" accept="image/*">
+
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- Profile Card 2 -->
+        <div class="profile-card" id="profile-card-2">
+            <div class="profile-header">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic" id="profile-pic-2">
+                <h2>C.B.G</h2>
+                <p>Collegebaptiste2@gmail.com</p>
+            </div>
+
+            <form class="profile-form" id="profile-form-2">
+                <label for="name-2">Full Name:</label>
+                <input type="text" id="name-2" name="name" value="Nziza jules" required>
+
+                <label for="bio-2">Bio:</label>
+                <textarea id="bio-2" name="bio" rows="4" placeholder="Write a short bio...">I am a web developer with a passion for coding.</textarea>
+
+                <label for="profile-pic-2">Profile Picture:</label>
+                <input type="file" id="profile-pic-input-2" name="profile-pic" accept="image/*">
+
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- Profile Card 3 -->
+        <div class="profile-card" id="profile-card-3">
+            <div class="profile-header">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic" id="profile-pic-3">
+                <h2>C.B.G</h2>
+                <p>Collegebaptiste2@gmail.com</p>
+            </div>
+
+            <form class="profile-form" id="profile-form-3">
+                <label for="name-3">Full Name:</label>
+                <input type="text" id="name-3" name="name" value="Nziza jules" required>
+
+                <label for="bio-3">Bio:</label>
+                <textarea id="bio-3" name="bio" rows="4" placeholder="Write a short bio...">I am a web developer with a passion for coding.</textarea>
+
+                <label for="profile-pic-3">Profile Picture:</label>
+                <input type="file" id="profile-pic-input-3" name="profile-pic" accept="image/*">
+
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- Profile Card 4 -->
+        <div class="profile-card" id="profile-card-4">
+            <div class="profile-header">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic" id="profile-pic-4">
+                <h2>C.B.G</h2>
+                <p>Collegebaptiste2@gmail.com</p>
+            </div>
+
+            <form class="profile-form" id="profile-form-4">
+                <label for="name-4">Full Name:</label>
+                <input type="text" id="name-4" name="name" value="Nziza jules" required>
+
+                <label for="bio-4">Bio:</label>
+                <textarea id="bio-4" name="bio" rows="4" placeholder="Write a short bio...">I am a web developer with a passion for coding.</textarea>
+
+                <label for="profile-pic-4">Profile Picture:</label>
+                <input type="file" id="profile-pic-input-4" name="profile-pic" accept="image/*">
+
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 User Profile System</p>
+    </footer>
+
+    <script>
+        // Function to save form data to localStorage
+        function saveFormData(profileId) {
+            const name = document.getElementById(`name-${profileId}`).value;
+            const bio = document.getElementById(`bio-${profileId}`).value;
+            const profilePic = document.getElementById(`profile-pic-input-${profileId}`).files[0];
+
+            // Save name and bio to localStorage
+            localStorage.setItem(`profile-${profileId}-name`, name);
+            localStorage.setItem(`profile-${profileId}-bio`, bio);
+
+            // Save profile picture to localStorage if selected
+            if (profilePic) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    localStorage.setItem(`profile-${profileId}-pic`, e.target.result);
+                };
+                reader.readAsDataURL(profilePic);
+            }
+
+            alert('Profile updated and saved!');
+        }
+
+        // Function to load form data from localStorage
+        function loadFormData(profileId) {
+            const savedName = localStorage.getItem(`profile-${profileId}-name`);
+            const savedBio = localStorage.getItem(`profile-${profileId}-bio`);
+            const savedPic = localStorage.getItem(`profile-${profileId}-pic`);
+
+            if (savedName) {
+                document.getElementById(`name-${profileId}`).value = savedName;
+            }
+
+            if (savedBio) {
+                document.getElementById(`bio-${profileId}`).value = savedBio;
+            }
+
+            if (savedPic) {
+                document.getElementById(`profile-pic-${profileId}`).src = savedPic;
+            }
+        }
+
+        // Add event listeners for all profile forms
+        const profileForms = document.querySelectorAll('.profile-form');
+        profileForms.forEach((form, index) => {
+            const profileId = index + 1; // profileId is 1-based
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent form from submitting immediately
+                saveFormData(profileId); // Save the data for this specific profile
+            });
+        });
+
+        // Load data from localStorage when the page loads
+        window.onload = function () {
+            loadFormData(1); // Load data for profile card 1
+            loadFormData(2); // Load data for profile card 2
+            loadFormData(3); // Load data for profile card 3
+            loadFormData(4); // Load data for profile card 4
+        };
+
+        // Handle profile picture preview for all profile cards
+        const profilePics = document.querySelectorAll('input[type="file"]');
+        profilePics.forEach((inputFile, index) => {
+            inputFile.addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        // Update the profile picture in the current card
+                        const profilePicElement = document.getElementById(`profile-pic-${index + 1}`);
+                        profilePicElement.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

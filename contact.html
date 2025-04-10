@@ -1,0 +1,94 @@
+<!-- <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and retrieve form data
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+    
+    // Recipient email (change to your email address)
+    $to = "ndishimyeemilien28@gmail.com";
+
+    // Email subject
+    $subject = "New Contact Form Message";
+
+    // Email body
+    $body = "You have received a new message from your website contact form.\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Message:\n$message";
+
+    // Set the email headers
+    $headers = "From: $email" . "\r\n" .
+               "Reply-To: $email" . "\r\n" .
+               "Content-Type: text/plain; charset=UTF-8";
+
+    // Send the email
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Message sent successfully!";
+    } else {
+        echo "Message sending failed. Please try again later.";
+    }
+}
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="contact.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Contact Form</title>
+  <script>
+        // JavaScript function to validate the form before submission
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Check if name is empty
+            if (name == "") {
+                alert("Please enter your name.");
+                return false;
+            }
+
+            // Check if email is empty or invalid
+            if (email == "") {
+                alert("Please enter your email address.");
+                return false;
+            } else if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Check if message is empty
+            if (message == "") {
+                alert("Please enter a message.");
+                return false;
+            }
+
+            // If everything is valid, return true to allow form submission
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fas fa-contact"></i> Contact Us</h2>
+        <form action="send_message.php" method="POST" onsubmit="return validateForm()">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+</body>
+</html>

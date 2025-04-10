@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+header {
+    background-color: green;
+    padding: 1rem;
+    text-align: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    font-size: 20px;
+    font-family: cursive;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: 1.5s;
+}
+
+header nav a:hover {
+    background-color: #f36100b0;
+    border-radius: 10px;
+    color: rgb(2, 73, 0);
+}
+
+
+section {
+    padding: 129.5px 50px;
+    text-align: center;
+}
+
+section h1 {
+    font-size: 3rem;
+    color: green;
+}
+
+section p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+section .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+section .btn:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: green;
+    color: white;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+    section h1 {
+        font-size: 2.5rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 480px) {
+    header nav a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+    }
+
+    section h1 {
+        font-size: 2rem;
+    }
+}

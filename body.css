@@ -1,0 +1,158 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:'Times New Roman', Times, serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+header {
+  background-color: green; 
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header .logo h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  border-radius: 10px;
+  padding: 15px 15px;
+  color: rgb(2, 73, 0);
+  background-color: chocolate;
+}
+
+
+main {
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+
+.news {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.news article {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+
+.news article h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  animation: 3s up  linear infinite;
+}
+
+.news article h3 a {
+  color: #1f1c1c;
+  text-decoration: none;
+}
+@keyframes up {
+  0%{
+       transform: translateY(0);
+  }
+  50%{
+          transform: translateY(-5px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.news article h3 a:hover {
+  color: #4CAF50;
+}
+
+
+.news article p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Footer Styling */
+footer {
+  background-color:green;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+      width: 95%;
+  }
+
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav ul li {
+      margin: 5px 0;
+  }
+
+  h2 {
+      font-size: 1.5rem;
+  }
+
+  .news article {
+      padding: 15px;
+  }
+
+  .news article h3 {
+      font-size: 1.3rem;
+  }
+}

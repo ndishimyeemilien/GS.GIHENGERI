@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="cbd logo.PNG"> 
+    <link rel="stylesheet" href="owner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Conductors</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="cbd logo.PNG" alt="School Logo" height="50">
+        </div>
+        <h3>CONDUCTORS GS.GIHENGERI</h3>
+        <nav>
+            <ul>
+            <li><a href="hom.html" class="s"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="teacher.html" class="s"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="profile-container">
+        <!-- Profile Card 1 -->
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                <h2>C.B.G</h2>
+            </div>
+            <form class="profile-form">
+                <label>Full Name:</label>
+                <input type="text" name="name" required>
+    
+                <label>Email:</label>
+                <input type="text" name="email" required>
+    
+                <label>Bio:</label>
+                <textarea name="bio" rows="4"></textarea>
+    
+                <label>Profile Picture:</label>
+                <input type="file" name="profile-pic" accept="image/*">
+    
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+    
+        <!-- Profile Card 2 -->
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                <h2>C.B.G</h2>
+            </div>
+            <form class="profile-form">
+                <label>Full Name:</label>
+                <input type="text" name="name" required>
+    
+                <label>Email:</label>
+                <input type="text" name="email" required>
+    
+                <label>Bio:</label>
+                <textarea name="bio" rows="4"></textarea>
+    
+                <label>Profile Picture:</label>
+                <input type="file" name="profile-pic" accept="image/*">
+    
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+    
+        <!-- Profile Card 3 -->
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                <h2>C.B.G</h2>
+            </div>
+            <form class="profile-form">
+                <label>Full Name:</label>
+                <input type="text" name="name" required>
+    
+                <label>Email:</label>
+                <input type="text" name="email" required>
+    
+                <label>Bio:</label>
+                <textarea name="bio" rows="4"></textarea>
+    
+                <label>Profile Picture:</label>
+                <input type="file" name="profile-pic" accept="image/*">
+    
+                <button type="submit" class="save-button">Save Changes</button>
+            </form>
+        </div>
+    </section>
+    
+    <script>
+ // Handle all profile cards dynamically (three profile cards)
+document.querySelectorAll('.profile-card').forEach((card, index) => {
+    const profileId = index + 1; // Ensure each card gets a unique profileId (1, 2, 3)
+    const form = card.querySelector('.profile-form');
+    const nameInput = form.querySelector('input[name="name"]');
+    const emailInput = form.querySelector('input[name="email"]');
+    const bioTextarea = form.querySelector('textarea[name="bio"]');
+    const profilePicInput = form.querySelector('input[type="file"]');
+    const profilePicElement = card.querySelector('.profile-pic');
+
+    // Load data from localStorage
+    const loadFormData = () => {
+        const savedName = localStorage.getItem(`profile-${profileId}-name`);
+        const savedEmail = localStorage.getItem(`profile-${profileId}-email`);
+        const savedBio = localStorage.getItem(`profile-${profileId}-bio`);
+        const savedPic = localStorage.getItem(`profile-${profileId}-pic`);
+
+        if (savedName) nameInput.value = savedName;
+        if (savedEmail) emailInput.value = savedEmail;
+        if (savedBio) bioTextarea.value = savedBio;
+        if (savedPic) profilePicElement.src = savedPic;
+    };
+
+    // Save data to localStorage
+    const saveFormData = () => {
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const bio = bioTextarea.value;
+        const profilePicFile = profilePicInput.files[0];
+
+        // Save name, email, and bio to localStorage
+        localStorage.setItem(`profile-${profileId}-name`, name);
+        localStorage.setItem(`profile-${profileId}-email`, email);
+        localStorage.setItem(`profile-${profileId}-bio`, bio);
+
+        // Save profile picture if it's selected
+        if (profilePicFile) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                // Save base64 encoded image to localStorage
+                localStorage.setItem(`profile-${profileId}-pic`, e.target.result);
+                profilePicElement.src = e.target.result; // Show the selected image in the profile picture element
+            };
+            reader.readAsDataURL(profilePicFile); // Read the image file as Data URL
+        }
+    };
+
+    // Event listener for form submission (save profile data)
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent default form submission
+        saveFormData(); // Save data to localStorage
+        alert('Profile changes saved!'); // Show success message
+    });
+
+    // Event listener for profile picture preview (when user selects an image)
+    profilePicInput.addEventListener('change', () => {
+        const file = profilePicInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                profilePicElement.src = e.target.result; // Update the profile picture preview
+            };
+            reader.readAsDataURL(file); // Read the selected image file as Data URL
+        }
+    });
+
+    // Load saved data when the page is loaded
+    loadFormData();
+});
+
+    </script>
+</body>
+</html>

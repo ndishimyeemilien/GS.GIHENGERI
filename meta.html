@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Selected Image</title>
+</head>
+<body>
+
+    <h2>Select an Image to Display</h2>
+
+    <!-- File input to select an image -->
+    <input type="file" id="imageInput" accept="image/*">
+    
+    <!-- Display the selected image here -->
+    <img id="imageDisplay" src="" alt="Selected Image" style="display: none; border-radius: 100px;">
+
+    <script>
+        // Get the input element and image display element
+        const imageInput = document.getElementById("imageInput");
+        const imageDisplay = document.getElementById("imageDisplay");
+
+        // Add an event listener to handle image selection
+        imageInput.addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // Set the src of the image to the selected file's data
+                    imageDisplay.src = e.target.result;
+                    imageDisplay.style.display = "block"; // Show the image
+                };
+
+                reader.readAsDataURL(file); // Read the file as a Data URL
+            }
+        });
+    </script>
+
+</body>
+</html>

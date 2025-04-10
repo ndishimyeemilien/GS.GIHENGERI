@@ -1,0 +1,173 @@
+
+body {
+  font-family:'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+
+header {
+  background-color: #06267ef8; 
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header .logo h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  border-radius: 10px;
+  padding: 15px 15px;
+  color: rgb(2, 73, 0);
+  background-color: chocolate;
+}
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 330px;
+  margin: 15px;
+  padding: 30px;
+  transition: transform 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-10px);
+}
+
+.profile-header {
+  text-align: center;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.profile-form input, 
+.profile-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.profile-form button {
+  background-color: rgba(0, 0, 255, 0.849);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.profile-form button:hover {
+  background-color: rgba(6, 6, 173, 0.849);
+}
+
+footer {
+  background-color: rgba(0, 0, 255, 0.849);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  /* Adjust the profile card layout for tablets and smaller screens */
+  .profile-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .profile-card {
+      width: 90%;
+      margin-bottom: 20px;
+  }
+  .profile-form input, 
+  .profile-form textarea {
+      font-size: 20px;
+  }
+
+  header {
+      padding: 15px;
+  }
+
+  nav a {
+      font-size: 16px;
+      margin: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust the profile card layout for mobile screens */
+  .profile-container {
+      padding: 10px;
+  }
+
+  .profile-card {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 15px;
+  }
+  header {
+      font-size: 16px;
+      padding: 10px;
+  }
+
+  nav a {
+      font-size: 14px;
+      margin: 0 8px;
+  }
+
+  .profile-pic {
+      width: 80px;
+      height: 80px;
+  }
+
+  .profile-form input, 
+  .profile-form textarea {
+      font-size: 20px;
+  }
+
+  .profile-form button {
+      padding: 8px;
+  }
+}
